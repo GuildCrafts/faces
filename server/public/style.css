@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%
+  width: 100%
+}
+
+
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.player {
+  margin: 1px;
+  padding: 1px;
+  text-align: center;
+  width: 15vw;
+}
+@media (max-width: 700px) {
+  .player {
+    width: 100vw;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .player {
+    width: 45vw;
+  }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  .player {
+    width: 30vw;
+  }
+}
+
+.player-name{
+  white-space: nowrap;
+}
+
+.player-avatar {
+  width: calc(100% - 4px);
+}

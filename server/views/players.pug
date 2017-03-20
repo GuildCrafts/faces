@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css")
+    link(rel="stylesheet" href="/style.css")
+  body
+    h1 Learners Guild Faces
+    // pre= JSON.stringify(players, null, 2)
+    .players
+      for player in players
+        .player
+          .player-name= player.name
+          .player-handle= player.handle
+          a(href="https://game.learnersguild.org/users/"+player.handle)
+            img.player-avatar(src=player.avatarUrl)
