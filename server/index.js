@@ -42,6 +42,10 @@ server.get('/', (req, res) => {
   })
 })
 
+server.get('/whoami', (req, res) => {
+  res.json(req.user)
+})
+
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`)
 })
