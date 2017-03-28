@@ -11,7 +11,8 @@ html
     .players
       for player in players
         .player
-          .player-name= player.name
-          .player-handle= player.handle
-          a(href="https://game.learnersguild.org/users/"+player.handle)
-            img.player-avatar(src=player.avatarUrl)
+          .player-details
+            .player-name= player.name
+            .player-handle= player.handle
+          a.player-avatar(href="https://game.learnersguild.org/users/"+player.handle)
+            img(src=player.avatarUrl)

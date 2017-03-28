@@ -35,6 +35,7 @@ server.get('/', (req, res) => {
   .then(results => {
     const players = results.data.findUsers
       .filter(player => player.active)
+      .sort(sortByName)
     res.render('players', {players})
   })
   .catch(error => {
@@ -49,3 +50,8 @@ server.get('/whoami', (req, res) => {
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`)
 })
+
+
+const sortByName = (a,b) =>
+  a.name.toLowerCase() < b.name.toLowerCase() ? -1 :
+  a.name.toLowerCase() > b.name.toLowerCase() ? 1 : 0

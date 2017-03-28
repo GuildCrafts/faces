@@ -1,16 +1,10 @@
 html {
   box-sizing: border-box;
+  font-family: helvetica, sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-html, body {
-  height: 100%
-  width: 100%
-}
-
-
 
 .players {
   display: flex;
@@ -19,31 +13,50 @@ html, body {
 }
 
 .player {
-  margin: 1px;
-  padding: 1px;
+  margin: 5px;
+  padding: 5px;
   text-align: center;
   width: 15vw;
+  background-color: rgba(0,0,0,0.05);
 }
-@media (max-width: 700px) {
-  .player {
-    width: 100vw;
-  }
-}
-@media (min-width: 701px) and (max-width: 900px) {
-  .player {
-    width: 45vw;
-  }
-}
-@media (min-width: 901px) and (max-width: 1200px) {
-  .player {
-    width: 30vw;
-  }
+
+.player-details{
+  padding-bottom: 5px;
 }
 
 .player-name{
   white-space: nowrap;
 }
 
-.player-avatar {
+.player-avatar > img {
+  min-width: 95%
+  min-height: 10vh;
   width: calc(100% - 4px);
+}
+
+
+@media (max-width: 600px) {
+  .player {
+    width: 100vw;
+  }
+  .player-details{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .player-details > * {
+    margin: 0 0.5em;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .player {
+    width: 45vw;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .player {
+    width: 30vw;
+  }
 }
