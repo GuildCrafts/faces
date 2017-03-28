@@ -38,10 +38,7 @@ server.get('/', (req, res) => {
     res.render('players', {players})
   })
   .catch(error => {
-    res.status(500).json({
-      error: error.message,
-      stack: error.stack,
-    })
+    res.status(500).render('error', {error})
   })
 })
 
