@@ -34,8 +34,6 @@ server.get('/', (req, res) => {
   `)
   .then(results => {
     const players = results.data.findUsers
-      .filter(player => player.active)
-      .sort(sortByName)
     res.render('players', {players})
   })
   .catch(error => {
