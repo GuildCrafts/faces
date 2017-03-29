@@ -31,13 +31,21 @@ const renderPlayers = function(){
 
   const state = {
     active: controls.active.checked,
+    sorter: sorters[controls.sortby.value] || sortByName,
+    filter: controls.filter.value.toLowerCase(),
   }
 
   if (state.active){
     players = players.filter(player => player.active)
   }
 
-  players.sort(sorters[controls.sortby.value] || sortByName)
+  if (state.filter){
+    players = players.filter(player =>
+      (player.name+' '+player.handle+' '+player.email).toLowerCase().includes(state.filter)
+    )
+  }
+
+  players.sort(state.sorter)
 
   console.log('rendering', players.length, 'players', state, {players})
   playersNode.append.apply(playersNode, players.map(p => p.node))
@@ -49,3 +57,4 @@ renderPlayers()
 
 controls.active.addEventListener('change', renderPlayers)
 controls.sortby.addEventListener('change', renderPlayers)
+controls.filter.addEventListener('keyup', renderPlayers)
