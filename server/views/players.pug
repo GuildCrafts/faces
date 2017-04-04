@@ -8,13 +8,10 @@ html
   body
     h1 Learners Guild Faces
     .controls
-      label
-        span Active
-        input(type="checkbox" name="active" value="0" class="control-active" checked)
-        select(name="sortby")
-          option(checked) Name ASC
-          option Name DESC
-        input(type="text" name="filter" value="")
+      select(name="sortby")
+        option(checked) Name ASC
+        option Name DESC
+      input(type="text" name="filter" value="" placeholder="filter")
 
     .players
       for player in players

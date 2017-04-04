@@ -25,18 +25,14 @@ const sorters = {
 
 const renderPlayers = function(){
   let players = toArray(allPlayers)
+
   players.forEach(player => {
     player.node.remove()
   })
 
   const state = {
-    active: controls.active.checked,
     sorter: sorters[controls.sortby.value] || sortByName,
     filter: controls.filter.value.toLowerCase(),
-  }
-
-  if (state.active){
-    players = players.filter(player => player.active)
   }
 
   if (state.filter){
@@ -47,7 +43,6 @@ const renderPlayers = function(){
 
   players.sort(state.sorter)
 
-  console.log('rendering', players.length, 'players', state, {players})
   playersNode.append.apply(playersNode, players.map(p => p.node))
 }
 
@@ -55,6 +50,5 @@ renderPlayers()
 
 
 
-controls.active.addEventListener('change', renderPlayers)
 controls.sortby.addEventListener('change', renderPlayers)
 controls.filter.addEventListener('keyup', renderPlayers)
